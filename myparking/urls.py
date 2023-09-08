@@ -31,6 +31,10 @@ urlpatterns = [
      path('update_payments/',
           views.update_payments, name='update_payments'),
 
+     # AdminPanel
+     path('admin_panel/',
+          views.admin_panel, name='admin_panel'),
+
      # API
      path('get_ip/',
           views.get_ip, name='get_ip'),

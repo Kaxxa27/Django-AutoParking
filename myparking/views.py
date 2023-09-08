@@ -12,6 +12,9 @@ def index(request):
        Функция отображения для домашней страницы сайта.
     """
     parkings = ParkingSpot.objects.all()
+
+    # Если уже достали из базы данных объекты, то лучше сделать вот так,
+    # parkings_count = len(parkings) || parkings.count()
     parkings_count = ParkingSpot.objects.all().count()
 
     return render(
@@ -284,3 +287,46 @@ def get_fact_about_cats(request):
         error_message = f"Error: {response.status_code}"
         return render(request, 'myparking/get_fact_about_cats.html',
                       {'error_message': error_message})
+
+
+def admin_panel(request):
+    user = request.user
+    payments = user.payments.all()
+
+    # debtor - должник
+    debtor, debtor_unpaid_payments, total_debt = find_debtor_user()
+    # print(debtor, len(debtor_unpaid_payments), total_debt)
+    # print(debtor_unpaid_payments)
+    # print([pay.is_paid for pay in debtor.payments.all()])
+    return render(
+        request,
+        'myparking/admin_panel.html',
+        context={'debtor': debtor,
+                 'debtor_unpaid_payments': debtor_unpaid_payments,
+                 'total_debt' : total_debt,
+
+        }
+    )
+
+
+def find_debtor_user():
+    """
+        Вычисление пользователя с самым большим количеством неоплаченных платежей.
+    """
+    users = User.objects.all()
+    max_debt_user = None
+    max_unpaid_payments = None
+    max_debt = 0
+
+    for user in users:
+        unpaid_payments = [payment for payment in user.payments.all() if not payment.is_paid]
+
+        # unpaid_payments = Payment.objects.all().filter(owner=user, is_paid=False)
+        total_debt = sum(payment.amount for payment in unpaid_payments)
+
+        if total_debt > max_debt:
+            max_debt = total_debt
+            max_unpaid_payments = unpaid_payments
+            max_debt_user = user
+
+    return max_debt_user, max_unpaid_payments, max_debt
