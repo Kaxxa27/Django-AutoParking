@@ -1,9 +1,14 @@
 {% extends "base_generic.html"%}
 {% load static %}
 
+{% block style %}
+  <link rel="stylesheet" href="{% static 'myparking/css/home.css' %}">
+{% endblock %}
+
 {% block title%}
 <title>Home</title>
 {% endblock %}
+
 {% block content%}
 
 <div class="main-container my-align-center">

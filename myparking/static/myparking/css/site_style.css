@@ -24,18 +24,22 @@
     width: 100%;
 }
 
-.banner{
-    width: 100%;
+.sertificat{
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: gold;
+}
+.text-bold35{
+    font-weight: bold;
+    font-size: 35px;
 }
 
-.parking-article{
-    font-size: 30px;
+.text-bold20{
+    font-weight: bold;
+    font-size: 20px;
 }
-
-.our-partners{
-    width: 100%;
-    text-align: center;
-}
-.our-partners-logo{
-    width: 10%;
+.text-align-center{
+   text-align: center;
 }
