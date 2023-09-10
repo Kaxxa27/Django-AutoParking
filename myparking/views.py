@@ -290,10 +290,13 @@ def get_fact_about_cats(request):
 
 
 def admin_panel(request):
+    """
+        Функция просмотра статистики за администратора
+    """
     user = request.user
     payments = user.payments.all()
 
-    # debtor - должник
+    # debtor - самый большой должник
     debtor, debtor_unpaid_payments, total_debt = find_debtor_user()
     # print(debtor, len(debtor_unpaid_payments), total_debt)
     # print(debtor_unpaid_payments)

@@ -11,3 +11,31 @@
     padding: 30px 40px 30px 40px;
     background: linear-gradient(to bottom right, #ffe259, #ffa751);
 }
+
+.my-align-center{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main-container{
+    margin: 0;
+    padding: 0 5% 0 5%;
+    width: 100%;
+}
+
+.banner{
+    width: 100%;
+}
+
+.parking-article{
+    font-size: 30px;
+}
+
+.our-partners{
+    width: 100%;
+    text-align: center;
+}
+.our-partners-logo{
+    width: 10%;
+}

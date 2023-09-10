@@ -1,8 +1,45 @@
 {% extends "base_generic.html"%}
+{% load static %}
 
 {% block title%}
 <title>Home</title>
 {% endblock %}
 {% block content%}
-<h1>This is home page</h1>
+
+<div class="main-container my-align-center">
+    <h1>Добро пожаловать!</h1>
+    <a href="http://127.0.0.1:8000/myparking/parking_list/" >
+        <img class="banner" src="{% static 'myparking/images/banner/myparking.png' %}" alt="Banner">
+    </a>
+
+    <hr>
+    <article class="parking-article">
+        <div>
+            <p><b><i>Автостоянка</i></b> - удобство и безопасность для вашего Автомобиля.</p>
+            <p>Это неотъемлемая часть современной городской инфраструктуры,
+            которая приносит огромную пользу как владельцам автомобилей, так и всему сообществу.</p>
+            <blockquote>
+                <p>Автостоянка - это не только место для парковки вашего автомобиля, это место,
+                где начинается ваш путь к приключениям,
+                где вы оставляете следы своих путешествий и ждете новых открытий.</p>
+                <footer>Кахновский Евгений - владелец крупнейшой сети автостоянок Республики Беларусь</footer>
+            </blockquote>
+        </div>
+    </article>
+    <hr>
+
+    <section class="our-partners">
+        <h1><b>Наши партнеры</b></h1>
+        <a href="https://www.shell.com" title="Shell" target="_blank">
+            <img class="our-partners-logo" src="{% static 'myparking/images/partners/shell.jpg' %}" >
+        </a>
+        <a href="http://www.belshina.by" title="Belshina" target="_blank">
+            <img class="our-partners-logo" src="{% static 'myparking/images/partners/belshina.png' %}" >
+        </a>
+         <a href="https://belarusbank.by" title="BelarusBank" target="_blank">
+            <img class="our-partners-logo" style="width: 7%;" src="{% static 'myparking/images/partners/belarusbank.jpg' %}" >
+        </a>
+    </section>
+</div>
+
 {% endblock %}

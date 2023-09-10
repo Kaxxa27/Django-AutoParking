@@ -11,9 +11,11 @@
   </thead>
   <tbody>
   <tr>
-    <td>Больше всего задолжал {{ debtor }}</td>
-    <td>Кол-во неоплаченных счетов {{ debtor_unpaid_payments|length}}</td>
-    <td>Долг: {{ total_debt }}$</td>
+    <td>
+      <p>Больше всего задолжал {{ debtor }}</p>
+      <p>Кол-во неоплаченных счетов {{ debtor_unpaid_payments|length}}</p>
+      <p>Долг: {{ total_debt }}$</p>
+    </td>
   </tr>
   </tbody>
 </table>
