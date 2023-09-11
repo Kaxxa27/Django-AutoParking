@@ -1,0 +1,11 @@
+details p {
+    font-style: italic;
+    padding-left: 40px;
+}
+
+.terms {
+    margin-top: 20px;
+}
+.terms dl dd {
+    margin-left: 2%;
+}

@@ -10,6 +10,7 @@
 
   {% load static %}
   <link rel="stylesheet" href="{% static 'myparking/css/site_style.css' %}">
+  <link rel="stylesheet" href="{% static 'myparking/css/dropdown.css' %}">
   <link rel="icon" href="{% static 'myparking/images/logo/bykaxxa_logo.png' %}" type="image/png">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -25,8 +26,17 @@
         <!--Main NavBar-->
         <nav class="navbar navbar-expand-xl navbar-light bg-light">
            <div class="container-fluid">
+
               <a class="navbar-brand" href="{% url 'index'%}">Home</a>
-              <a class="navbar-brand" href="{% url 'about'%}">About</a>
+
+               <div class="dropdown">
+                 <button class="navbar-brand dropbtn">Services</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'about'%}">About</a>
+                    <a href="{% url 'FAQ'%}">FAQ</a>
+                </div>
+              </div>
+
               <a class="navbar-brand" href="{% url 'parking_list'%}">Parking's</a>
 
                 {% if user.is_authenticated %}
@@ -52,10 +62,8 @@
   </div>
 
   <div class="my-main-container">
-          <div class="row">
-            {% block content %}
-            {% endblock %}
-          </div>
+      {% block content %}
+      {% endblock %}
   </div>
 
 </body>
