@@ -45,4 +45,8 @@ urlpatterns = [
      path('get_fact_about_cats/',
           views.get_fact_about_cats, name='get_fact_about_cats'),
 
+     # News
+     path('news/', views.news, name='news'),
+     path('news/<int:pk>/', views.news_details, name='news_details'),
+
 ]

@@ -306,9 +306,9 @@ def admin_panel(request):
         'myparking/admin_panel.html',
         context={'debtor': debtor,
                  'debtor_unpaid_payments': debtor_unpaid_payments,
-                 'total_debt' : total_debt,
+                 'total_debt': total_debt,
 
-        }
+                 }
     )
 
 
@@ -333,3 +333,23 @@ def find_debtor_user():
             max_debt_user = user
 
     return max_debt_user, max_unpaid_payments, max_debt
+
+
+def news(request):
+    return render(request, 'myparking/news.html', context={'news': News.objects.all()})
+
+
+def news_details(request, pk):
+    certain_news = get_object_or_404(News, pk=pk)
+    return render(request, 'myparking/' + get_path_to_html(certain_news), context={'certain_news': certain_news})
+
+
+def get_path_to_html(obj):
+    publish_date = obj.publish_date
+    return os.path.join(
+        'news',
+        str(publish_date.year),
+        str(publish_date.month).zfill(2),
+        str(publish_date.day).zfill(2),
+        f'{obj.pk}.html'
+    )

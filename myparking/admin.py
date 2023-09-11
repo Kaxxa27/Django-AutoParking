@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from .models import *
+from .views import get_path_to_html
 
 
 @admin.register(Car)
@@ -31,3 +32,13 @@ class PaymentAdmin(admin.ModelAdmin):
 class AccountAdmin(admin.ModelAdmin):
     list_display = ('user', 'amount')
     list_filter = ('amount', 'user')
+
+
+@admin.register(News)
+class NewsAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'publish_date', 'file_path')
+
+    def file_path(self, obj):
+        return get_path_to_html(obj)
+
+    file_path.short_description = 'File path'
