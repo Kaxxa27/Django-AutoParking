@@ -4,14 +4,6 @@
   align-items: center;
 }
 
-.square-div{
-    width: 100%;
-    margin-top: 10px;
-    border-radius: 30px;
-    padding: 30px 40px 30px 40px;
-    background: linear-gradient(to bottom right, #ffe259, #ffa751);
-}
-
 .my-align-center{
     display: flex;
     justify-content: center;
@@ -56,6 +48,10 @@
 
 .text-10{
     font-size: 10px;
+}
+
+.text-15{
+    font-size: 15px;
 }
 
 .text-20{
