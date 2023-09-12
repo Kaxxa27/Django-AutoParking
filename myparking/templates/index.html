@@ -3,6 +3,7 @@
 
 {% block style %}
   <link rel="stylesheet" href="{% static 'myparking/css/home.css' %}">
+  <link rel="stylesheet" href="{% static 'myparking/css/news.css' %}">
 {% endblock %}
 
 {% block title%}
@@ -16,6 +17,18 @@
     <a href="http://127.0.0.1:8000/myparking/parking_list/" >
         <img class="banner" src="{% static 'myparking/images/banner/myparking.png' %}" alt="Banner">
     </a>
+
+    <h1 class="text-bold">Последняя новость:</h1>
+    <div class="news-div news-bg-gradient-orange text-bold text-20">
+            <div>{{ latest_news.publish_date }}</div>
+            <br>
+            <div class="block-news">
+                <div>
+                    <a href="{% url 'news_details' latest_news.pk %}">{{ latest_news.title }}</a>
+                    <p>{{ latest_news.summary|slice:300 }}...</p>
+                </div>
+            </div>
+        </div>
 
     <hr>
     <article class="parking-article">

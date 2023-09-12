@@ -17,10 +17,14 @@ def index(request):
     # parkings_count = len(parkings) || parkings.count()
     parkings_count = ParkingSpot.objects.all().count()
 
+    latest_news = News.objects.all().last()
+
     return render(
         request,
         'index.html',
-        context={'parkings': parkings, 'parkings_count': parkings_count, },
+        context={'parkings': parkings,
+                 'parkings_count': parkings_count,
+                 'latest_news': latest_news },
     )
 
 
