@@ -52,4 +52,11 @@ urlpatterns = [
      path('news/', views.news, name='news'),
      path('news/<int:pk>/', views.news_details, name='news_details'),
 
+     # Review
+     path('reviews/', views.reviews, name='reviews'),
+     path('create_review/', views.create_review, name='create_review'),
+     path(r'success_review_page/', TemplateView.as_view(template_name="success_review_page.html"), name='success_review_page'),
+
+     # Profile & Account
+     path('my_account/', views.my_account, name='my_account'),
 ]

@@ -4,6 +4,7 @@ from datetime import datetime
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator
 from django.db import models
+from django.utils import timezone
 
 
 class Car(models.Model):
@@ -76,3 +77,18 @@ class News(models.Model):
 
     class Meta:
         verbose_name_plural = 'News'
+
+
+class Review(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews')
+    rating = models.IntegerField(default=0)
+    description = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f"Review by {self.user.username} ({self.rating}/5)"
+
+    class Meta:
+        verbose_name_plural = 'Reviews'
+
+

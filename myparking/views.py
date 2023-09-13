@@ -24,7 +24,7 @@ def index(request):
         'index.html',
         context={'parkings': parkings,
                  'parkings_count': parkings_count,
-                 'latest_news': latest_news },
+                 'latest_news': latest_news},
     )
 
 
@@ -357,3 +357,33 @@ def get_path_to_html(obj):
         str(publish_date.day).zfill(2),
         f'{obj.pk}.html'
     )
+
+
+def create_review(request):
+    user = request.user
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            rating = form.cleaned_data['rating']
+            description = form.cleaned_data['description']
+
+            # Создаем новый отзыв и сохраняем его в базу данных
+            review = Review(rating=rating, description=description)
+            review.user = user
+            review.save()
+
+            return redirect('success_review_page')  # Перенаправляем на страницу успешного создания отзыва
+    else:
+        form = ReviewForm()
+
+    return render(request, 'myparking/review_form.html', {'form': form})
+
+
+def my_account(request):
+    user = request.user
+    return render(request, 'myparking/my_account.html', context={'user': user})
+
+
+def reviews(request):
+    reviews = Review.objects.all()
+    return render(request, 'myparking/reviews.html', context={'reviews': reviews})

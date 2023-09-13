@@ -24,3 +24,8 @@ class CarForm(forms.ModelForm):
     class Meta:
         model = Car
         fields = ['mark', 'model', 'license_plate']
+
+
+class ReviewForm(forms.Form):
+    rating = forms.IntegerField(label='Оценка', min_value=1, max_value=5)
+    description = forms.CharField(label='Отзыв', widget=forms.Textarea)

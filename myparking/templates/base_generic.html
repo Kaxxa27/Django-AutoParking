@@ -39,6 +39,7 @@
                         <a href="{% url 'contacts'%}">Our Contacts</a>
                         <a href="{% url 'privacy_policy'%}">Privacy Policy</a>
                         <a href="{% url 'promo_codes'%}">Promo Codes</a>
+                        <a href="{% url 'reviews'%}">Reviews</a>
                     </div>
               </div>
 
@@ -50,6 +51,7 @@
                     <a class="navbar-brand" href="{% url 'my_parking_list'%}">My Parkings</a>
                     <a class="navbar-brand" href="{% url 'my_cars'%}">My Cars</a>
                     <a class="navbar-brand" href="{% url 'my_payments'%}">My Payments</a>
+                    <a class="navbar-brand" href="{% url 'my_account'%}">My Account</a>
 
                     {% if user.is_superuser %}
                         <a class="navbar-brand" href="{% url 'admin_panel' %}">AdminPanel</a>
