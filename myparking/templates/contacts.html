@@ -1,0 +1,27 @@
+{% extends "base_generic.html"%}
+{% load static %}
+
+{% block style %}
+  <link rel="stylesheet" href="{% static 'myparking/css/contacts.css' %}">
+{% endblock %}
+
+
+{% block title%}
+<title>Contacts</title>
+{% endblock %}
+
+{% block content%}
+
+<div class="main-container">
+    <div class="block-contacts">
+        <div >
+            <img class="contact-image" src="{% static 'myparking/images/contacts/tech-support.jpg' %}" alt="Contact Photo">
+        </div>
+        <div style="contact-summary">
+            <p></p>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

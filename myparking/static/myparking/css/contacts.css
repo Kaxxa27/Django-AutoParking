@@ -1,0 +1,16 @@
+.block-contacts {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.contact-image{
+    width: 60%;
+    border-radius: 10%;
+}
+
+.contact-summary{
+    width: 100%;
+    background-color: red;
+    border-radius: 10%;
+}
