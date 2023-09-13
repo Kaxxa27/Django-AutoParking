@@ -9,6 +9,7 @@ urlpatterns = [
      path(r'about/', TemplateView.as_view(template_name="about.html"), name='about'),
      path(r'contacts/', TemplateView.as_view(template_name="contacts.html"), name='contacts'),
      path(r'privacy_policy/', TemplateView.as_view(template_name="privacy_policy.html"), name='privacy_policy'),
+     path(r'promo_codes', TemplateView.as_view(template_name="promo_codes.html"), name='promo_codes'),
      path(r'faq/', TemplateView.as_view(template_name="faq.html"), name='FAQ'),
      path('register/', views.registration_view, name='register'),
 
