@@ -381,7 +381,13 @@ def create_review(request):
 
 def my_account(request):
     user = request.user
-    return render(request, 'myparking/my_account.html', context={'user': user})
+    un_paid_payments = user.payments.filter(is_paid=False)
+    return render(
+        request,
+        'myparking/my_account.html',
+        context={'user': user,
+                 'un_paid_payments': un_paid_payments}
+    )
 
 
 def reviews(request):
