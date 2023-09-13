@@ -16,8 +16,8 @@
         <div class="news-div news-bg-gradient-orange text-bold text-20">
             <div>{{ item.publish_date }}</div>
             <br>
-            <div class="block-news">
-                <div style="width: 60%;">
+            <div class="block-news ">
+                <div style="width: 60%; text-align: justify; padding-right: 3%;">
                     <a href="{% url 'news_details' item.pk %}">{{ item.title }}</a>
                     <br><br>
                     <p>{{ item.summary|slice:300 }}...</p>
