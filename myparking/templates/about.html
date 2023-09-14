@@ -53,30 +53,49 @@
                     Your browser does not support the video tag.
                 </video>
             </div>
-        </div>
-
-        <fieldset class="sertificat text-align-center text-bold20">
-            <legend class="legend-style text-bold35">Сертификат</legend>
             <div>
-                <p>Единый реестр автостоянок</p>
-                <p><b>Свидетельство</b></p>
-                <p>о внесении сведений</p>
-                <p>Общество ограниченной ответственности "<i>ByKaxxa</i>"</p>
-                <p><u>Реестровый номер: 2727</u></p>
+                <audio controls>
+                    <source src="{% static 'myparking/audio/gimn/gimn.mp3' %}">
+                </audio>
             </div>
-        </fieldset>
-
+        </div>
         <div>
-            <iframe width="100%" height="400" src="https://www.youtube.com/embed/BtAfPfCqUBg?si=sAdNtNtmYQNf9Mtp?mute=1"
-                    title="YouTube video player"
-                    frameborder="0"
+            <div itemscope itemtype="https://schema.org/Car" >
+                <h1 itemprop="summaryCar">
+                    Новая машина!</h1>
+                <p>
+                    <span itemprop="typeCar">Матиз</span>
+                    <span itemprop="licenseCar">
+                        778899
+                    </span>
+                </p>
+            </div>
 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-            </iframe>
         </div>
 
     </div>
+
+    <fieldset class="sertificat text-align-center text-bold20">
+        <legend class="legend-style text-bold35">Сертификат</legend>
+        <div>
+            <p>Единый реестр автостоянок</p>
+            <p><b>Свидетельство</b></p>
+            <p>о внесении сведений</p>
+            <p>Общество ограниченной ответственности "<i>ByKaxxa</i>"</p>
+            <p><u>Реестровый номер: 2727</u></p>
+        </div>
+    </fieldset>
+
+    <div>
+        <iframe width="100%" height="400" src="https://www.youtube.com/embed/BtAfPfCqUBg?si=sAdNtNtmYQNf9Mtp?mute=1"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+        </iframe>
+    </div>
+
+</div>
 </div>
 
 {% endblock %}
