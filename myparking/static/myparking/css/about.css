@@ -5,3 +5,16 @@
     margin-bottom: 20px;
     background-color: gold;
 }
+
+.block-logo-promo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-bottom: 10px;
+}
+
+.promo-video{
+    width: 50%;
+    border: 10px solid orange;
+}
