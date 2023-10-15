@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.bg-site {
+    background: beige;
+}
+
 .my-align-center{
     display: flex;
     justify-content: center;
