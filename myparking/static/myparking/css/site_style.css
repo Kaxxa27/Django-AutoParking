@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+
 .my-main-container{
   display: flex;
   justify-content: center;
@@ -6,6 +9,14 @@
 
 .bg-site {
     background: beige;
+}
+
+.bebas-font{
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.dancing-script-font{
+    font-family: 'Dancing Script', cursive;
 }
 
 .my-align-center{
