@@ -6,6 +6,26 @@
     background-color: gold;
 }
 
+@media (max-width: 500px){
+    .sertificat{
+        border: 2px solid black;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: aqua;
+    }
+}
+
+@media (min-width: 1000px){
+    .sertificat{
+        border: 2px solid black;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: red;
+    }
+}
+
 .block-logo-promo{
     display: flex;
     flex-direction: row;
@@ -17,4 +37,31 @@
 .promo-video{
     width: 50%;
     border: 10px solid orange;
+}
+
+dt::first-letter {
+  font-size: 150%; /* Изменяет размер первой буквы */
+  font-weight: bold; /* Делает первую букву жирной */
+  color: red;
+}
+
+/* Выделение первой строки текста */
+dt::first-line {
+  font-weight: bold; /* Делает первую строку жирной */
+}
+dt:before, dt:after{
+content: "*";
+}
+
+dt::selection {
+  background-color: yellow; /* Изменяет фон при выделении текста */
+  color: black; /* Изменяет цвет текста при выделении */
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li:before{
+    content: "\20000    ";
 }
