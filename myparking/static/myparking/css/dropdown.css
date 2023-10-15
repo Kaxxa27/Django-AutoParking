@@ -17,7 +17,7 @@
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
-  margin-top: 40%; /* Для того, чтобы работало с navbar-rand из bootsrap*/
+  /* margin-top: 40%;  Для того, чтобы работало с navbar-rand из bootsrap*/
   position: absolute;
   background-color: white;
   min-width: 160px;

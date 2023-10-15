@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myparking.apps.MyparkingConfig',
-    'bootstrap5',
 ]
 
 MIDDLEWARE = [

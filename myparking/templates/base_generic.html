@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% load bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
 
     {% block title %}<title>My Parking</title>{% endblock %}
     <meta charset="utf-8">
@@ -13,9 +10,7 @@
     <link rel="stylesheet" href="{% static 'myparking/css/dropdown.css' %}">
     <link rel="stylesheet" href="{% static 'myparking/css/font_text.css' %}">
     <link rel="icon" href="{% static 'myparking/images/logo/bykaxxa_logo.png' %}" type="image/png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     {% block style %}
     {% endblock %}
@@ -25,14 +20,14 @@
 <body>
 <div>
     <!--Main NavBar-->
-    <nav class="navbar navbar-expand-xl navbar-light bg-light">
-        <div class="container-fluid">
+    <nav>
+        <div>
 
-            <a class="navbar-brand" href="{% url 'index'%}">Home</a>
-            <a class="navbar-brand" href="{% url 'parking_list'%}">Parking's</a>
+            <a href="{% url 'index'%}">Home</a>
+            <a href="{% url 'parking_list'%}">Parking's</a>
 
             <div class="dropdown">
-                <button class="navbar-brand dropbtn">About us</button>
+                <button class="dropbtn">About us</button>
                 <div class="dropdown-content">
                     <a href="{% url 'about'%}">About</a>
                     <a href="{% url 'FAQ'%}">FAQ</a>
@@ -47,37 +42,37 @@
             </div>
 
             <div class="dropdown">
-                <button class="navbar-brand dropbtn">API</button>
+                <button class="dropbtn">API</button>
                 <div class="dropdown-content">
-                    <a  href="{% url 'get_fact_about_cats' %}">Fact about cats</a>
-                    <a  href="{% url 'get_ip'%}">Server IP</a>
+                    <a href="{% url 'get_fact_about_cats' %}">Fact about cats</a>
+                    <a href="{% url 'get_ip'%}">Server IP</a>
                 </div>
             </div>
 
             {% if user.is_authenticated %}
             <div class="dropdown">
-                <button class="navbar-brand dropbtn">Services</button>
+                <button class="dropbtn">Services</button>
                 <div class="dropdown-content">
-                    <a  href="{% url 'my_parking_list'%}">My Parkings</a>
-                    <a  href="{% url 'my_cars'%}">My Cars</a>
-                    <a  href="{% url 'my_payments'%}">My Payments</a>
+                    <a href="{% url 'my_parking_list'%}">My Parkings</a>
+                    <a href="{% url 'my_cars'%}">My Cars</a>
+                    <a href="{% url 'my_payments'%}">My Payments</a>
                 </div>
             </div>
-            <label class="navbar-brand" >User: {{ user.get_username }}</label>
-            <label class="navbar-brand" >Account: {{ user.account.amount }}$</label>
+            <label>User: {{ user.get_username }}</label>
+            <label>Account: {{ user.account.amount }}$</label>
 
 
-            <a class="navbar-brand" href="{% url 'my_account'%}">My Account</a>
+            <a href="{% url 'my_account'%}">My Account</a>
 
             {% if user.is_superuser %}
-            <a class="navbar-brand" href="{% url 'admin_panel' %}">AdminPanel</a>
+            <a href="{% url 'admin_panel' %}">AdminPanel</a>
             {% endif %}
 
-            <a class="navbar-brand" href="{% url 'logout'%}">Logout</a>
+            <a href="{% url 'logout'%}">Logout</a>
             {% else %}
 
-            <a class="navbar-brand" href="{% url 'login'%}">Login</a>
-            <a class="navbar-brand" href="{% url 'register'%}">Registration</a>
+            <a href="{% url 'login'%}">Login</a>
+            <a href="{% url 'register'%}">Registration</a>
             {% endif %}
 
         </div>
