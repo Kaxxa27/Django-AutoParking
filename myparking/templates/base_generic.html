@@ -7,7 +7,8 @@
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'myparking/css/site_style.css' %}">
-    <link rel="stylesheet" href="{% static 'myparking/css/dropdown.css' %}">
+    <link rel="stylesheet" href="{% static 'myparking/css/elements/dropdown.css' %}">
+    <link rel="stylesheet" href="{% static 'myparking/css/elements/navbar.css' %}">
     <link rel="stylesheet" href="{% static 'myparking/css/font_text.css' %}">
     <link rel="icon" href="{% static 'myparking/images/logo/bykaxxa_logo.png' %}" type="image/png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -21,12 +22,12 @@
 <div>
     <!--Main NavBar-->
     <nav>
-        <div>
+        <div class="navbar">
 
-            <a href="{% url 'index'%}">Home</a>
-            <a href="{% url 'parking_list'%}">Parking's</a>
+            <a class="navbar-item" href="{% url 'index'%}">Home</a>
+            <a class="navbar-item" href="{% url 'parking_list'%}">Parking's</a>
 
-            <div class="dropdown">
+            <div class="navbar-item dropdown">
                 <button class="dropbtn">About us</button>
                 <div class="dropdown-content">
                     <a href="{% url 'about'%}">About</a>
@@ -36,12 +37,10 @@
                     <a href="{% url 'privacy_policy'%}">Privacy Policy</a>
                     <a href="{% url 'promo_codes'%}">Promo Codes</a>
                     <a href="{% url 'reviews'%}">Reviews</a>
-
-
                 </div>
             </div>
 
-            <div class="dropdown">
+            <div class="navbar-item dropdown">
                 <button class="dropbtn">API</button>
                 <div class="dropdown-content">
                     <a href="{% url 'get_fact_about_cats' %}">Fact about cats</a>
@@ -50,7 +49,7 @@
             </div>
 
             {% if user.is_authenticated %}
-            <div class="dropdown">
+            <div class="navbar-item dropdown">
                 <button class="dropbtn">Services</button>
                 <div class="dropdown-content">
                     <a href="{% url 'my_parking_list'%}">My Parkings</a>
@@ -58,23 +57,22 @@
                     <a href="{% url 'my_payments'%}">My Payments</a>
                 </div>
             </div>
-            <label>User: {{ user.get_username }}</label>
-            <label>Account: {{ user.account.amount }}$</label>
+            <label class="navbar-label">User: {{ user.get_username }}</label>
+            <label class="navbar-label">Account: {{ user.account.amount }}$</label>
 
 
-            <a href="{% url 'my_account'%}">My Account</a>
+            <a class="navbar-item" href="{% url 'my_account'%}">My Account</a>
 
             {% if user.is_superuser %}
-            <a href="{% url 'admin_panel' %}">AdminPanel</a>
+            <a class="navbar-item" href="{% url 'admin_panel' %}">AdminPanel</a>
             {% endif %}
 
-            <a href="{% url 'logout'%}">Logout</a>
+            <a class="navbar-item" href="{% url 'logout'%}">Logout</a>
             {% else %}
 
-            <a href="{% url 'login'%}">Login</a>
-            <a href="{% url 'register'%}">Registration</a>
+            <a class="navbar-item" href="{% url 'login'%}">Login</a>
+            <a class="navbar-item" href="{% url 'register'%}">Registration</a>
             {% endif %}
-
         </div>
     </nav>
 </div>
