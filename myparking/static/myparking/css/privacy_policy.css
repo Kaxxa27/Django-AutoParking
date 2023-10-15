@@ -34,3 +34,32 @@ th {
 tr:hover {
     background-color: #f5f5f5;
 }
+
+
+/* Не посещенные ссылки */
+.content-link:link {
+  color: red;
+  text-decoration: none;
+}
+
+/* Посещенные ссылки */
+.content-link:visited {
+  color: yellow;
+  text-decoration: none;
+}
+
+/* Наведение курсора на ссылку */
+.content-link:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+/* Активные (нажатые) ссылки */
+.content-link:active {
+  color: green;
+}
+
+/* Ссылки в фокусе */
+.content-link:focus {
+ color: darkgreen;
+}
