@@ -5,7 +5,27 @@
 }
 
 .banner{
-    width: 100%;
+    width: 50%;
+    animation: spin 2s ease infinite; /* Применяем анимацию "bounce" */
+}
+
+@keyframes spin {
+  0%, 100% {
+    transform: translate(0px, 0px);
+    transform: rotate(0deg);
+  }
+  25%{
+    transform: translate(30px, 0px);
+
+  }
+  50% {
+    transform: translate(30px, 30px);
+    transform: rotate(30deg);
+  }
+  75%{
+    transform: translate(0px, 30px);
+    transform: rotate(-30deg);
+  }
 }
 
 .parking-article{
