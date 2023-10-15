@@ -63,3 +63,18 @@ tr:hover {
 .content-link:focus {
  color: darkgreen;
 }
+
+.my-ul li:last-child{
+    background-color: green;
+    color: yellow;
+}
+
+.my-ul li:first-child{
+    background-color: teal;
+    color: deeppink;
+    font-size: 50px;
+}
+
+.my-ul li:nth-child(2){
+    background-color: pink;
+}

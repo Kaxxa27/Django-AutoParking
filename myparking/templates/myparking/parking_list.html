@@ -1,4 +1,9 @@
 {% extends "base_generic.html"%}
+{% load static %}
+
+{% block style %}
+  <link rel="stylesheet" href="{% static 'myparking/css/parking_list.css' %}">
+{% endblock %}
 
 {% block title%}
 <title>Parkings</title>
@@ -31,8 +36,8 @@
      </div>
      <div class="col-sm-8">
         <h1>Список парковочных мест</h1>
-         <table class="table table-striped table-bordered">
-             <thead class="thead-dark">
+         <table >
+             <thead>
                  <tr>
                      <th>Номер места</th>
                      <th>Цена/Месяц</th>
