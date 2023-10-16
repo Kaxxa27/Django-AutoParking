@@ -47,10 +47,14 @@ table {
     margin: 20px auto;
 }
 
+td:empty {
+    background-color: purple;
+}
+
 th, td {
     padding: 10px;
-    text-align: left;
-    border: 1px solid black;
+    text-align: center;
+    border: 2px solid black;
 }
 
 th {
@@ -65,4 +69,13 @@ tr:hover {
 /* Измененный стиль курсора при наведении на кнопку */
 button[type="submit"]:hover {
   cursor: pointer;
+}
+
+.grad-text{
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+	background-image: linear-gradient(to right, #03001e, #7303c0,#ec38bc,#fdeff9);
 }
