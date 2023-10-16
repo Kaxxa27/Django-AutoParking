@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
+* {
+margin: 0px;
+padding: 0px;
+}
 .my-main-container{
   display: flex;
   justify-content: center;

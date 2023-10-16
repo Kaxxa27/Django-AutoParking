@@ -19,63 +19,59 @@
 </head>
 
 <body class="bg-site">
-<div>
-    <!--Main NavBar-->
-    <nav>
-        <div class="navbar">
+<!--Main NavBar-->
+<nav class="navbar">
 
-            <a class="navbar-item" href="{% url 'index'%}">Home</a>
-            <a class="navbar-item" href="{% url 'parking_list'%}">Parking's</a>
+    <a class="navbar-item" href="{% url 'index'%}">Home</a>
+    <a class="navbar-item" href="{% url 'parking_list'%}">Parking's</a>
 
-            <div class="navbar-item dropdown">
-                <button class="dropbtn">About us</button>
-                <div class="dropdown-content">
-                    <a href="{% url 'about'%}">About</a>
-                    <a href="{% url 'FAQ'%}">FAQ</a>
-                    <a href="{% url 'news'%}">News</a>
-                    <a href="{% url 'contacts'%}">Our Contacts</a>
-                    <a href="{% url 'privacy_policy'%}">Privacy Policy</a>
-                    <a href="{% url 'promo_codes'%}">Promo Codes</a>
-                    <a href="{% url 'reviews'%}">Reviews</a>
-                </div>
-            </div>
-
-            <div class="navbar-item dropdown">
-                <button class="dropbtn">API</button>
-                <div class="dropdown-content">
-                    <a href="{% url 'get_fact_about_cats' %}">Fact about cats</a>
-                    <a href="{% url 'get_ip'%}">Server IP</a>
-                </div>
-            </div>
-
-            {% if user.is_authenticated %}
-            <div class="navbar-item dropdown">
-                <button class="dropbtn">Services</button>
-                <div class="dropdown-content">
-                    <a href="{% url 'my_parking_list'%}">My Parkings</a>
-                    <a href="{% url 'my_cars'%}">My Cars</a>
-                    <a href="{% url 'my_payments'%}">My Payments</a>
-                </div>
-            </div>
-            <label class="navbar-label">User: {{ user.get_username }}</label>
-            <label class="navbar-label">Account: {{ user.account.amount }}$</label>
-
-
-            <a class="navbar-item" href="{% url 'my_account'%}">My Account</a>
-
-            {% if user.is_superuser %}
-            <a class="navbar-item" href="{% url 'admin_panel' %}">AdminPanel</a>
-            {% endif %}
-
-            <a class="navbar-item" href="{% url 'logout'%}">Logout</a>
-            {% else %}
-
-            <a class="navbar-item" href="{% url 'login'%}">Login</a>
-            <a class="navbar-item" href="{% url 'register'%}">Registration</a>
-            {% endif %}
+    <div class="navbar-item dropdown">
+        <button class="dropbtn">About us</button>
+        <div class="dropdown-content">
+            <a href="{% url 'about'%}">About</a>
+            <a href="{% url 'FAQ'%}">FAQ</a>
+            <a href="{% url 'news'%}">News</a>
+            <a href="{% url 'contacts'%}">Our Contacts</a>
+            <a href="{% url 'privacy_policy'%}">Privacy Policy</a>
+            <a href="{% url 'promo_codes'%}">Promo Codes</a>
+            <a href="{% url 'reviews'%}">Reviews</a>
         </div>
-    </nav>
-</div>
+    </div>
+
+    <div class="navbar-item dropdown">
+        <button class="dropbtn">API</button>
+        <div class="dropdown-content">
+            <a href="{% url 'get_fact_about_cats' %}">Fact about cats</a>
+            <a href="{% url 'get_ip'%}">Server IP</a>
+        </div>
+    </div>
+
+    {% if user.is_authenticated %}
+    <div class="navbar-item dropdown">
+        <button class="dropbtn">Services</button>
+        <div class="dropdown-content">
+            <a href="{% url 'my_parking_list'%}">My Parkings</a>
+            <a href="{% url 'my_cars'%}">My Cars</a>
+            <a href="{% url 'my_payments'%}">My Payments</a>
+        </div>
+    </div>
+    <label class="navbar-label">User: {{ user.get_username }}</label>
+    <label class="navbar-label">Account: {{ user.account.amount }}$</label>
+
+
+    <a class="navbar-item" href="{% url 'my_account'%}">My Account</a>
+
+    {% if user.is_superuser %}
+    <a class="navbar-item" href="{% url 'admin_panel' %}">AdminPanel</a>
+    {% endif %}
+
+    <a class="navbar-item" href="{% url 'logout'%}">Logout</a>
+    {% else %}
+
+    <a class="navbar-item" href="{% url 'login'%}">Login</a>
+    <a class="navbar-item" href="{% url 'register'%}">Registration</a>
+    {% endif %}
+</nav>
 
 <div class="my-main-container">
     {% block content %}
