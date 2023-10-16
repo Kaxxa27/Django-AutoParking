@@ -1,10 +1,17 @@
 .sertificat{
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 20px;
+    padding: 10px;
     margin-bottom: 20px;
-    background-color: gold;
+    background-color: white;
+    font-size: 50px;
+    z-index: 1;
+    border: 100px solid black;
+    border-image: url('../images/sertificate/sertificate_ramka.jpg') 250;
+
+    -webkit-border-image: url('../images/sertificate/sertificate_ramka.jpg') 250;
+    -moz-border-image: url('../images/sertificate/sertificate_ramka.jpg') 250;
+    -o-border-image: url('../images/sertificate/sertificate_ramka.jpg') 250;
 }
+
 
 @media (max-width: 500px){
     .sertificat{
@@ -16,7 +23,7 @@
     }
 }
 
-@media (min-width: 1000px){
+@media (min-width: 2000px){
     .sertificat{
         border: 2px solid black;
         border-radius: 5px;
