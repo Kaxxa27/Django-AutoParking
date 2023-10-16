@@ -76,6 +76,25 @@ ul {
   list-style-type: none;
 }
 
+ul li{
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+	background-image: linear-gradient(to right, #03001e, #7303c0,#ec38bc,#fdeff9);
+}
+
 ul li:before{
     content: "\20000    ";
+}
+
+audio {
+    padding: 4px;
+    position: relative;
+    width: 300px;
+    top: 100px;
+    right: 100px;
+    background-color: deeppink;
+    box-shadow: 20px 10px 10px rgba(0, 0, 0, 0.5);
 }
