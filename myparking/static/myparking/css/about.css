@@ -34,6 +34,13 @@
     margin-bottom: 10px;
 }
 
+.image-logo{
+    width: 100px;
+}
+.image-logo:hover{
+    transform: scale(2.2) rotate(30deg);
+}
+
 .promo-video{
     width: 50%;
     border: 10px solid orange;
