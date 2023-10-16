@@ -92,3 +92,54 @@ tr:hover {
     text-transform: capitalize;
     font-variant: small-caps;
 }
+
+.pol-conf{
+    width: 100%;
+    padding: 25px;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-image: radial-gradient(#00c3ff 40%, #ffff1c);
+}
+/* Стили для заголовков */
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Стили для ссылок в содержании */
+ol.text-bold {
+    list-style-type: decimal;
+    margin-left: 20px;
+}
+
+ol.text-bold li {
+    margin: 10px 0;
+}
+
+a.content-link {
+    text-decoration: none;
+    color: #0066cc;
+    transition: color 0.3s;
+}
+
+a.content-link:hover {
+    color: #0033aa;
+}
+
+/* Стили для общего текста */
+p {
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+strong {
+    font-weight: bold;
+    color: #333;
+}
