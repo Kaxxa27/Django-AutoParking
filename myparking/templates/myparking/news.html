@@ -11,7 +11,7 @@
 
 {% block content%}
 
-<div class="main-container">
+<div class="news-container">
     {% for item in news %}
         <div class="news-div news-bg-gradient-orange text-bold text-20">
             <div>{{ item.publish_date }}</div>
@@ -20,7 +20,7 @@
                 <div style="width: 60%; text-align: justify; padding-right: 3%;">
                     <a href="{% url 'news_details' item.pk %}">{{ item.title }}</a>
                     <br><br>
-                    <p>{{ item.summary|slice:300 }}...</p>
+                    <p class="news-summary">{{ item.summary}}</p>
                 </div>
                 <div style=" width: 40%;">
                     {% if item.image %}
