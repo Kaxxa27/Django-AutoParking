@@ -21,3 +21,17 @@
     background: lightgrey;
     padding: 4%;
 }
+
+div > p {
+    font-size: 30px;
+}
+
+div[class^="contact-summary"] p {
+    background-color: yellow;
+}
+p[class$="bold"] {
+    color: blue;
+}
+div[class="block-contacts"] {
+    background-color: orange;
+}
