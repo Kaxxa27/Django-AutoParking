@@ -1,42 +1,34 @@
-// Получаем элемент с обратным отсчетом
+
 const timeCounter = document.getElementById('time-counter');
-const time = 60 * 60 * 1000; // 1 hour
+const offset_time = 60 * 60 * 1000; // 1 hour
+let targetTime = parseInt(localStorage.getItem('timeCounterTargetTime')) || (Date.now() + offset_time); // 1 hour
+let timeCounterInterval;
 
-// Функция для обратного отсчета
-function startTimeCounter(targetTime) {
-    const updateTimeCounter = () => {
-         if (targetTime > 0) {
-            const date = new Date(targetTime);
-            const hours = date.getUTCHours();
-            const minutes = date.getUTCMinutes();
-            const seconds = date.getUTCSeconds();
-            targetTime -= 1000;
-            timeCounter.innerHTML = `Time Counter: ${hours}h ${minutes}m ${seconds}s`;
-        } else {
-            timeCounter.innerHTML = 'Timer is over!';
-        }
-    };
-
-    updateTimeCounter();
-
-    // Обновляем отсчет каждую секунду
-    const timeCounterInterval = setInterval(updateTimeCounter, 1000);
-
-    // Сохраняем состояние отсчета в локальное хранилище
-    localStorage.setItem('timeCounterTargetTime', targetTime);
-
-    // Очищаем интервал при завершении
-    if (targetTime <= 0) {
+function updateTimeCounter() {
+    if (targetTime > Date.now()) {
+        const timeLeft = targetTime - Date.now();
+        const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+        const seconds = Math.floor((timeLeft / 1000) % 60);
+        timeCounter.innerHTML = `Time Counter: ${hours}h ${minutes}m ${seconds}s`;
+        localStorage.setItem('timeCounterTargetTime', targetTime);
+    } else {
+        timeCounter.innerHTML = 'Timer is over!';
         clearInterval(timeCounterInterval);
+        localStorage.removeItem('timeCounterTargetTime');
     }
-} 
+}
 
-// Получаем целевое время из локального хранилища
-const storedTargetTime = localStorage.getItem('timeCounterTargetTime');
+function startCounter() {
+    updateTimeCounter();
+    timeCounterInterval = setInterval(updateTimeCounter, 1000);
+}
 
-if (storedTargetTime) {
-    startTimeCounter(parseInt(storedTargetTime));
+// Проверяем, нужно ли начинать обратный отсчет или продолжить с оставшегося времени
+if (targetTime > Date.now()) {
+    startCounter();
 } else {
-    const targetTime = time; 
-    startTimeCounter(targetTime);
+    // Если время истекло или не установлено, начнем отсчет с 1 часа
+    targetTime = Date.now() + offset_time;
+    startCounter();
 }
