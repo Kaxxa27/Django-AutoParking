@@ -12,7 +12,9 @@ def index(request):
        Функция отображения для домашней страницы сайта.
     """
     parkings = ParkingSpot.objects.all()
-
+    banners = Banner.objects.all()
+    banner_interval = BannerInterval.objects.first()  # That first banner
+    print(banner_interval.interval_seconds)
     # Если уже достали из базы данных объекты, то лучше сделать вот так,
     # parkings_count = len(parkings) || parkings.count()
     parkings_count = ParkingSpot.objects.all().count()
@@ -24,7 +26,10 @@ def index(request):
         'index.html',
         context={'parkings': parkings,
                  'parkings_count': parkings_count,
-                 'latest_news': latest_news},
+                 'latest_news': latest_news,
+                 'banners': banners,
+                 'banner_interval': banner_interval.interval_seconds,
+        },
     )
 
 

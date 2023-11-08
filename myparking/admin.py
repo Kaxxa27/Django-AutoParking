@@ -34,6 +34,16 @@ class AccountAdmin(admin.ModelAdmin):
     list_filter = ('amount', 'user')
 
 
+@admin.register(BannerInterval)
+class BannerIntervalAdmin(admin.ModelAdmin):
+    list_display = ('interval_seconds',)
+
+
+@admin.register(Banner)
+class BannerAdmin(admin.ModelAdmin):
+    list_display = ('title', 'link')
+
+
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'publish_date', 'file_path')

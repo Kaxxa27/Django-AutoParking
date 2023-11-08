@@ -4,7 +4,12 @@
     font-size: 30px;
 }
 
-.banner{
+.banner-container
+{
+  
+}
+
+.banner-image{
     width: 50%;
     animation: spin 2s ease infinite; /* Применяем анимацию "bounce" */
 }

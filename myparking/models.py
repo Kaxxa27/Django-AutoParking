@@ -92,3 +92,17 @@ class Review(models.Model):
         verbose_name_plural = 'Reviews'
 
 
+class Banner(models.Model):
+    title = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='images/banner/')
+    link = models.URLField()
+
+    def __str__(self):
+        return self.title
+
+
+class BannerInterval(models.Model):
+    interval_seconds = models.PositiveIntegerField(default=3000)
+
+    def __str__(self):
+        return f"Interval: {self.interval_seconds} seconds"

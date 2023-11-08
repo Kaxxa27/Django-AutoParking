@@ -14,9 +14,20 @@
 
 <div class="main-container my-align-center">
     <h2>Добро пожаловать в <span class="company-name">ByKaxxa</span>!</h2>
-    <a href="http://127.0.0.1:8000/myparking/parking_list/">
-        <img class="banner" src="{% static 'myparking/images/banner/myparking.png' %}" alt="Banner">
-    </a>
+
+    <div class="banner-container" data-interval="{{ banner_interval }}" >
+        {% if banners %}
+        {% for banner in banners %}
+         <div class="banner" {% if not forloop.first %}hidden{% endif %}>
+                <a href="{{ banner.link }}" target="_blank">
+                    <img class="banner-image" src="{{ banner.image.url }}" alt="{{ banner.title }}">
+                </a>
+         </div>
+        {% endfor %}
+        {% else %}
+        <p>No banners available.</p>
+        {% endif %}
+    </div>
 
     <code>
         def index(request):
@@ -91,4 +102,8 @@
     </section>
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'myparking/js/index/banners.js' %}"></script>
 {% endblock %}
