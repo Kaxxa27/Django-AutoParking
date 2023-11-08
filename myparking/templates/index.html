@@ -13,6 +13,9 @@
 {% block content%}
 
 <div class="main-container my-align-center">
+    
+    <div class="time-counter" id="time-counter"></div>
+    
     <h2>Добро пожаловать в <span class="company-name">ByKaxxa</span>!</h2>
 
     <div class="banner-container" data-interval="{{ banner_interval }}" >
@@ -106,4 +109,5 @@
 
 {% block scripts %}
     <script src="{% static 'myparking/js/index/banners.js' %}"></script>
+    <script src="{% static 'myparking/js/index/time-counter.js' %}"></script>
 {% endblock %}
