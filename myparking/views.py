@@ -1,7 +1,11 @@
 from datetime import datetime, timedelta
 
 import requests
+import json 
+
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
 
 from .forms import *
 from .models import *
@@ -29,7 +33,7 @@ def index(request):
                  'latest_news': latest_news,
                  'banners': banners,
                  'banner_interval': banner_interval.interval_seconds,
-        },
+                 },
     )
 
 
@@ -72,16 +76,26 @@ def parking_list(request):
 
 def rent_parking(request, id):
     parking = get_object_or_404(ParkingSpot, id=id)
+
     user = request.user
 
     if request.method == 'POST':
         # Присвоение парковочного места пользователю
+        new_price = request.POST.get('new_price')
+        print(new_price)
+
+        promo = request.POST.get('promo')
+        print(promo)
+
+        promocode = PromoCode.objects.filter(code=promo).first()
+        promocode.use_promo_code()
+        print(promocode)
 
         user.parkings.add(parking)
         сurrent_date = datetime.now()
         payment = Payment(owner=user,
                           park=parking,
-                          amount=parking.price,
+                          amount=new_price,
                           receipt_date=сurrent_date,
                           receipt_time=сurrent_date.time())
         payment.save()
@@ -398,3 +412,41 @@ def my_account(request):
 def reviews(request):
     reviews = Review.objects.all()
     return render(request, 'myparking/reviews.html', context={'reviews': reviews})
+
+
+def promocodes(request):
+    promo = PromoCode.objects.all()
+    return render(request, 'promo_codes.html', context={'promo': promo})
+
+
+@csrf_exempt
+def check_promo_code(request):
+    if request.method == 'POST':
+        data = json.loads(request.body.decode('utf-8'))
+        print(data)
+
+        promo_code = data.get('promoCode')
+        print(promo_code)
+        park_id = data.get('parkId')
+        print(park_id)
+
+        promo = PromoCode.objects.filter(code=promo_code).first()
+        park = ParkingSpot.objects.filter(id=park_id).first()
+        print(park)
+
+        if promo and promo.is_valid():
+            # Промокод найден и действителен, изменяем цену
+            new_price = round(park.price - (park.price  * promo.discount / 100), 2)
+            
+            data = {
+                'success': True,
+                'discount': promo.discount,
+                'new_price': new_price
+            }
+        else:
+            data = {
+                'success': False,
+                'message': 'Промокод не действителен!',
+            }
+
+        return JsonResponse(data)

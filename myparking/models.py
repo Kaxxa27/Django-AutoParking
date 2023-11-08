@@ -106,3 +106,31 @@ class BannerInterval(models.Model):
 
     def __str__(self):
         return f"Interval: {self.interval_seconds} seconds"
+
+
+class PromoCode(models.Model):
+    code = models.CharField(max_length=20, unique=True)  # Уникальный номер промокода
+    description = models.TextField()
+    discount = models.DecimalField(max_digits=5, decimal_places=2)  # Величина скидки (например, 10%)
+    valid_from = models.DateTimeField()  # Дата начала действия промокода
+    valid_to = models.DateTimeField()  # Дата окончания действия промокода
+    max_usage_count = models.PositiveIntegerField()  # Максимальное количество использований промокода
+    current_usage_count = models.PositiveIntegerField(default=0)  # Текущее количество использований промокода
+
+    def is_valid(self):
+        """
+        Метод для проверки действительности промокода в текущий момент времени
+        """
+        now = timezone.now()
+        return self.valid_from <= now <= self.valid_to and self.current_usage_count < self.max_usage_count
+
+    def use_promo_code(self):
+        """
+        Метод для использования промокода
+        """
+        if self.is_valid():
+            self.current_usage_count += 1
+            self.save()
+
+    def __str__(self):
+        return self.code

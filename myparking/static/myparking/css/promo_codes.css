@@ -1,43 +1,33 @@
 .grid-container {
-  display: grid;
-  column-gap: 50px;
-  grid-template-columns: auto;
-  padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Распределение по 3 элемента в строке */
+    grid-gap: 20px; /* Расстояние между элементами */
 }
 
-.block-promo {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: stretch;
-    margin: 10px;
-    padding: 2px;
-    width: 100%;
+/* Добавьте стили для элементов внутри grid-container по вашему усмотрению */
+.promo-block {
+    /* Стили для каждой секции (промокода) */
+    border: 2px solid black;
+    margin-top: 20px;
 }
 
-.block-image{
-    width: 100%;
-    margin-right: 10px;
+.promo-image {
+    max-width: 100%;
 }
 
-.promo-image{
-    width: 100%;
-}
-
-.block-column{
-    display: flex;
-    flex-direction: column;
-}
-
-section{
-    width: 50%;
-    margin: 10px;
-}
-
-.promo-summary{
-    height: 150px;
+.promo-summary {
+    /* Стили для описания промокода */
+    text-overflow: ellipsis; /* Добавление многоточия только в случае полного переполнения */
+    overflow: hidden;
+    min-height: 200px;
+    padding: 5px;
     background: LightSkyBlue;
-    padding: 4%;
+    white-space: normal; /* Разрешить перенос текста */
+}
+
+.important
+{
+    font-size: 30px;
 }
 
 

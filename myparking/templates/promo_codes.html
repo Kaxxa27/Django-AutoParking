@@ -1,8 +1,9 @@
 {% extends "base_generic.html"%}
 {% load static %}
+{% load sub_filter %}
 
 {% block style %}
-  <link rel="stylesheet" href="{% static 'myparking/css/promo_codes.css' %}">
+<link rel="stylesheet" href="{% static 'myparking/css/promo_codes.css' %}">
 {% endblock %}
 
 
@@ -13,66 +14,30 @@
 {% block content%}
 
 <div class="main-container">
-  <div class="grid-container">
-     <div class="block-promo">
-       <section>
-          <div class="block-image">
-            <img class="promo-image" src="{% static 'myparking/images/promo/promo.jpg' %}" alt="Promo Photo">
-          </div>
-          <div class="promo-summary text-20">
-              <p><b>PROMO2023</b> - 10% скидка на первый месяц парковки.</p>
-          </div>
-
-       </section>
-              <section>
-          <div class="block-image">
-            <img class="promo-image" src="{% static 'myparking/images/promo/promo.jpg' %}" alt="Promo Photo">
-          </div>
-          <div class="promo-summary text-20">
-              <p> <b>SAFE21</b> - Бесплатная услуга страхования для вашего автомобиля при аренде на месяц.</p>
-          </div>
-
-       </section>
-              <section>
-          <div class="block-image">
-            <img class="promo-image" src="{% static 'myparking/images/promo/promo.jpg' %}" alt="Promo Photo">
-          </div>
-          <div class="promo-summary text-20">
-              <p><b>BYKAXXAVIP</b> - Доступ к премиум-зоне парковки с бесплатным кофе в течение дня.</p>
-          </div>
-       </section>
-     </div>
-     <div class="block-promo">
-         <section>
-              <div class="block-image">
-                <img class="promo-image" src="{% static 'myparking/images/promo/promo.jpg' %}" alt="Promo Photo">
-              </div>
-              <div class="promo-summary text-20">
-                  <p> <b>FAMILY2023</b> - Специальное предложение для семейных автомобилей: вторая машина паркуется бесплатно.</p>
-              </div>
-         </section>
-
-         <section>
-              <div class="block-image">
-                <img class="promo-image" src="{% static 'myparking/images/promo/promo.jpg' %}" alt="Promo Photo">
-              </div>
-              <div class="promo-summary text-20">
-                  <p> <b>FREEMONTH</b> - Бесплатный месяц парковки при годовой аренде места.</p>
-
-              </div>
-         </section>
-
-         <section>
-              <div class="block-image">
-               <img class="promo-image" src="{% static 'myparking/images/promo/promo.jpg' %}" alt="Promo Photo">
-              </div>
-              <div class="promo-summary text-20">
-                  <p> <b>EARLYBIRD</b> - Специальное предложение для ранних пташек: получите скидку 15% при
-                      бронировании парковочного места на месяц заранее.</p>
-              </div>
-         </section>
+    <div class="important">
+        <p><strong>Важно!</strong></p>
+    <p>Промокоды действуют только на аренду нового паркинга!</p>
+    <p>И не действуют на последующие платежи!</p>
     </div>
-  </div>
+
+    <div class="grid-container">
+        {% if promo %}
+        {% for prom in promo %}
+        <div class="promo-block">
+            <div class="block-image">
+                <img class="promo-image" src="{% static 'myparking/images/promo/promo.jpg' %}" alt="Promo Photo">
+            </div>
+            <div class="promo-summary text-20">
+                <p><b>{{ prom.code }}</b> - {{ prom.description }}</p>
+                <p><b> Кол-во: {{ prom.max_usage_count|sub:prom.current_usage_count }}</b></p>
+                <p><b> Действует до {{ prom.valid_to }}</b></p>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>No promocodes available.</p>
+        {% endif %}
+    </div>
 </div>
 
 {% endblock %}

@@ -52,3 +52,9 @@ class NewsAdmin(admin.ModelAdmin):
         return get_path_to_html(obj)
 
     file_path.short_description = 'File path'
+
+
+@admin.register(PromoCode)
+class PromoCodeAdmin(admin.ModelAdmin):
+    list_display = ('code', 'description', 'discount', 'valid_from',
+                    'valid_to', 'max_usage_count', 'current_usage_count')

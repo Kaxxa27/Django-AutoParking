@@ -9,7 +9,7 @@ urlpatterns = [
      path(r'about/', TemplateView.as_view(template_name="about.html"), name='about'),
      path(r'contacts/', TemplateView.as_view(template_name="contacts.html"), name='contacts'),
      path(r'privacy_policy/', TemplateView.as_view(template_name="privacy_policy.html"), name='privacy_policy'),
-     path(r'promo_codes', TemplateView.as_view(template_name="promo_codes.html"), name='promo_codes'),
+     # path(r'promo_codes', TemplateView.as_view(template_name="promo_codes.html"), name='promo_codes'),
      path(r'faq/', TemplateView.as_view(template_name="faq.html"), name='FAQ'),
      path('register/', views.registration_view, name='register'),
 
@@ -59,4 +59,8 @@ urlpatterns = [
 
      # Profile & Account
      path('my_account/', views.my_account, name='my_account'),
+
+     # PromoCodes
+     path(r'promo_codes/', views.promocodes, name='promo_codes'),
+     path('check_promo_code/', views.check_promo_code, name='check_promo_code'),
 ]
