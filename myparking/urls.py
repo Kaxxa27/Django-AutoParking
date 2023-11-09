@@ -11,6 +11,7 @@ urlpatterns = [
      path(r'privacy_policy/', TemplateView.as_view(template_name="privacy_policy.html"), name='privacy_policy'),
      # path(r'promo_codes', TemplateView.as_view(template_name="promo_codes.html"), name='promo_codes'),
      path(r'faq/', TemplateView.as_view(template_name="faq.html"), name='FAQ'),
+     path(r'matrix/', TemplateView.as_view(template_name="matrix.html"), name='matrix'),
      path('register/', views.registration_view, name='register'),
 
      path('parking_list/', views.parking_list, name='parking_list'),
