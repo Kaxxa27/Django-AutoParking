@@ -13,9 +13,19 @@
 {% block content%}
 
 <div class="main-container">
+    
     <div class="block-contacts">
-        <div class="block-image">
-            <img class="contact-image" src="{% static 'myparking/images/contacts/tech-support.jpg' %}" alt="Contact Photo">
+        <div class="card-wrapper">
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img class="contact-image" src="{% static 'myparking/images/contacts/tech-support.jpg' %}" alt="Contact Photo">
+                    </div>
+                    <div class="card-back">
+                        <h2>Back</h2>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="contact-summary text-20">
             <p class=" text-bold">По вопросам технического характера обращаться в тех. поддрежку по следующим контактам:</p>
@@ -25,8 +35,17 @@
     </div>
 
     <div class="block-contacts">
-        <div class="block-image">
-            <img class="contact-image" src="{% static 'myparking/images/contacts/stethem-boss.jpg' %}" alt="Contact Photo">
+        <div class="card-wrapper">
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img class="contact-image" src="{% static 'myparking/images/contacts/stethem-boss.jpg' %}" alt="Contact Photo">
+                    </div>
+                    <div class="card-back">
+                        <h2>Back</h2>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="contact-summary text-20">
             <p class=" text-bold">Денис Иванов</p>
@@ -37,8 +56,17 @@
     </div>
 
     <div class="block-contacts">
-        <div class="block-image">
-            <img class="contact-image" src="{% static 'myparking/images/contacts/margo-manager.jpg' %}" alt="Contact Photo">
+        <div class="card-wrapper">
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img class="contact-image" src="{% static 'myparking/images/contacts/margo-manager.jpg' %}" alt="Contact Photo">
+                    </div>
+                    <div class="card-back">
+                        <h2>Back</h2>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="contact-summary text-20">
             <p class=" text-bold">Мария Петрова</p>
@@ -49,4 +77,9 @@
     </div>
 </div>
 
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="{% static 'myparking/js/contacts/cards3D.js' %}"></script>
 {% endblock %}
