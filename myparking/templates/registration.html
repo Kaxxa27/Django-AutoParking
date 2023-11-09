@@ -35,7 +35,10 @@
                 <td>{{ form.email.label_tag }}</td>
                 <td>{{ form.email }}</td>
             </tr>
-
+            <tr>
+                <td><label>Birth Day:</label></td>
+                <td><input type="date" id="age" required></td>
+            </tr>
             <tr>
                 <td>{{ form.password1.label_tag }}</td>
                 <td>{{ form.password1 }}</td>
@@ -47,7 +50,7 @@
             </tr>
 
         </table>
-        <button type="submit">Зарегистрироваться</button>
+        <button id="reg_button" type="submit">Зарегистрироваться</button>
     </form>
 </div>
 <div style="display: column;">
@@ -72,4 +75,8 @@
 </div>
 
 
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'myparking/js/registration/age.js' %}"></script>
 {% endblock %}
