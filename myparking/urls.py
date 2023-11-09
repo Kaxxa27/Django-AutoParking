@@ -13,6 +13,7 @@ urlpatterns = [
      path(r'faq/', TemplateView.as_view(template_name="faq.html"), name='FAQ'),
      path(r'matrix/', TemplateView.as_view(template_name="matrix.html"), name='matrix'),
      path(r'paint/', TemplateView.as_view(template_name="paint.html"), name='paint'),
+     path(r'hash_table/', TemplateView.as_view(template_name="hash_table.html"), name='hash_table'),
      path('register/', views.registration_view, name='register'),
 
      path('parking_list/', views.parking_list, name='parking_list'),
