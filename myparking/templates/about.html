@@ -3,6 +3,7 @@
 
 {% block style %}
 <link rel="stylesheet" href="{% static 'myparking/css/about.css' %}">
+<link rel="stylesheet" href="{% static 'myparking/css/scroll.css' %}">
 {% endblock %}
 
 {% block title%}
@@ -13,6 +14,14 @@
 
 <div class="main-container my-align-center">
     <div>
+
+        <section id="scroll-container">
+            <img src="{% static 'myparking/images/scroll/parking.png' %}" id="bg" />
+            <h1 id="text">ByKaxxa</h1>
+            <img src="{% static 'myparking/images/scroll/left-car.png' %}" id="left-car" />
+            <img src="{% static 'myparking/images/scroll/right-car.png' %}" id="right-car" />
+        </section>
+
         <dl>
             <dt>Информация о компании:</dt>
             <dd>
@@ -98,4 +107,8 @@
 </div>
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'myparking/js/about/scroll.js' %}"></script>
 {% endblock %}
